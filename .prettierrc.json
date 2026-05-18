@@ -1,0 +1,8 @@
+{
+  "desc": ".json文件里面不允许有注释，得单独开key-value，/* 使用之前要安装npm install --global prettier */",
+  "singleQuoteDesc": "//使用单引号",
+  "singleQuote": true,
+  "semiDesc": "//在语句结尾处不打印分号",
+  "semi": false,
+  "tabWidth": 4
+}

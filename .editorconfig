@@ -1,0 +1,20 @@
+# 此文件为 EditorConfig 配置文件，用于设置通用的代码格式化规则。
+# root = true 表明此配置文件是根配置，对整个项目生效。
+root = true
+
+# 此段配置适用于所有文件类型
+[*]
+# 字符编码设置为 UTF-8
+charset = utf-8
+# 使用空格进行缩进，而非制表符
+indent_style = space
+# 每个层级的缩进大小为 2 个空格
+indent_size = 4
+# 行尾换行符使用 LF (Unix) 格式
+end_of_line = lf
+# 在文件末尾自动添加新行
+insert_final_newline = true
+# 自动删除行尾的多余空格
+trim_trailing_whitespace = true
+# 引用字符串默认使用单引号
+quote_type = single

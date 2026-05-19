@@ -2,7 +2,7 @@
     "name": "cloud-core",
     "private": true,
     "type": "module",
-    "packageManager": "pnpm@9.0.0",
+    "packageManager": "pnpm@9.0.5",
     "pnpm": {
         "onlyBuiltDependencies": [
             "npx"
@@ -21,6 +21,7 @@
         "lint:stylelint": "stylelint \"**/*.{css,scss}\" --fix"
     },
     "dependencies": {
+        "core-js": "^3.49.0",
         "react": "^19.2.6",
         "react-dom": "^19.2.6"
     },

@@ -6,7 +6,7 @@
     "scripts": {
         "postinstall": "unbuild --stub"
     },
-    "packageManager": "pnpm@9.0.0",
+    "packageManager": "pnpm@9.0.5",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",

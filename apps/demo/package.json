@@ -10,8 +10,6 @@
         "postinstall": "git config core.hooksPath ../../.husky/_ &&  git config core.excludesfile ../../.gitignore"
     },
     "keywords": [],
-    "author": "",
-    "license": "ISC",
     "lint-staged": {
         "*.{vue,js,ts,jsx,tsx,json,md}": "eslint --fix",
         "*.{css,scss}": "stylelint --fix"

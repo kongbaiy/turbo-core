@@ -9,12 +9,12 @@
         ]
     },
     "scripts": {
+        "preinstall": "npx only-allow pnpm",
         "build": "turbo run build",
         "dev": "turbo run dev",
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-        "check-types": "turbo run check-types",
-        "preinstall": "npx only-allow pnpm"
+        "check-types": "turbo run check-types"
     },
     "dependencies": {
         "react": "^19.2.6",
@@ -35,5 +35,15 @@
     },
     "engines": {
         "node": ">=18"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "lint-staged": {
+        "*.{vue,js,ts,jsx,tsx,json,md}": "eslint --fix",
+        "*.{css,scss}": "stylelint --fix"
     }
 }

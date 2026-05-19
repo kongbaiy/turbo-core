@@ -4,7 +4,7 @@ import turboPlugin from 'eslint-plugin-turbo'
 import tseslint from 'typescript-eslint'
 import onlyWarn from 'eslint-plugin-only-warn'
 
-export const config = [
+export const baseConfig = [
     js.configs.recommended,
     eslintConfigPrettier,
     ...tseslint.configs.recommended,

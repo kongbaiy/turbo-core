@@ -1,6 +1,7 @@
 {
     "name": "cloud-core",
     "private": true,
+    "type": "module",
     "packageManager": "pnpm@9.0.0",
     "pnpm": {
         "onlyBuiltDependencies": [
@@ -21,6 +22,10 @@
     },
     "devDependencies": {
         "@repo/vite-config": "workspace:*",
+        "@repo/eslint-config": "workspace:*",
+        "@repo/stylelint-config": "workspace:*",
+        "@repo/commitlint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "prettier": "^3.8.3",

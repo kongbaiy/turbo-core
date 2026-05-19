@@ -4,19 +4,16 @@
     "type": "module",
     "private": true,
     "scripts": {
-        "preinstall": "npx only-allow pnpm"
+        "postinstall": "unbuild --stub"
     },
     "packageManager": "pnpm@9.0.0",
-    "pnpm": {
-        "onlyBuiltDependencies": [
-            "npx"
-        ]
-    },
     "exports": {
-        "./base": "./base.js",
-        "./next-js": "./next.js",
-        "./react-internal": "./react-internal.js"
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs"
+        }
     },
+    "types": "./dist/index.d.ts",
     "devDependencies": {
         "@eslint/js": "^9.39.1",
         "@next/eslint-plugin-next": "^16.2.0",

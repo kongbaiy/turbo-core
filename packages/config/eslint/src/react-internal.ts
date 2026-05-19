@@ -4,9 +4,9 @@ import tseslint from 'typescript-eslint'
 import pluginReactHooks from 'eslint-plugin-react-hooks'
 import pluginReact from 'eslint-plugin-react'
 import globals from 'globals'
-import { config as baseConfig } from './base.js'
+import { baseConfig } from './base.js'
 
-export const config = [
+export const reactConfig = [
     ...baseConfig,
     js.configs.recommended,
     eslintConfigPrettier,

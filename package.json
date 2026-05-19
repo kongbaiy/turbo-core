@@ -1,6 +1,12 @@
 {
     "name": "cloud-core",
     "private": true,
+    "packageManager": "pnpm@9.0.0",
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "npx"
+        ]
+    },
     "scripts": {
         "build": "turbo run build",
         "dev": "turbo run dev",
@@ -9,23 +15,18 @@
         "check-types": "turbo run check-types",
         "preinstall": "npx only-allow pnpm"
     },
-    "pnpm": {
-        "onlyBuiltDependencies": [
-            "npx"
-        ]
-    },
-    "packageManager": "pnpm@9.0.0",
     "dependencies": {
         "react": "^19.2.6",
         "react-dom": "^19.2.6"
     },
     "devDependencies": {
+        "@repo/vite-config": "workspace:*",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "prettier": "^3.8.3",
         "turbo": "^2.9.14",
         "typescript": "5.9.2",
-        "@repo/vite-config": "workspace:*"
+        "unbuild": "^3.6.1"
     },
     "engines": {
         "node": ">=18"

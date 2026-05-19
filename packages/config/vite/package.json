@@ -1,0 +1,21 @@
+{
+    "name": "@repo/vite-config",
+    "version": "0.0.0",
+    "private": true,
+    "description": "",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "unbuild --stub"
+    },
+    "exports": {
+        "./base": "./base.js"
+    },
+    "keywords": [],
+    "author": "",
+    "devDependencies": {
+        "@vitejs/plugin-react": "^6.0.2",
+        "vite": "^8.0.13"
+    }
+}

@@ -5,7 +5,7 @@ export default defineBuildConfig({
     clean: true,
     declaration: true,
     failOnWarn: false,
-    externals: ['vite'],
+    externals: ['vite', '@vitejs/plugin-react-swc'],
     rollup: {
         emitCJS: true,
     },

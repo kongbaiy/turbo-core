@@ -47,5 +47,14 @@
 
     "files.eol": "\n",
 
-    "cSpell.words": ["njsproj", "ntvs", "serviceworker", "Vercel"]
+    "cSpell.words": [
+        "commitlint",
+        "njsproj",
+        "ntvs",
+        "serviceworker",
+        "unocss",
+        "unplugin",
+        "Vercel",
+        "vite"
+    ]
 }

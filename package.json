@@ -18,7 +18,8 @@
         "postinstall": "husky",
         "prepare": "husky",
         "lint:eslint": "eslint . --fix",
-        "lint:stylelint": "stylelint \"**/*.{css,scss}\" --fix"
+        "lint:stylelint": "stylelint \"**/*.{css,scss}\" --fix",
+        "clone": "sh git-clone.sh"
     },
     "dependencies": {
         "core-js": "^3.49.0",

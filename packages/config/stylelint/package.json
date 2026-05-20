@@ -18,6 +18,8 @@
     "keywords": [],
     "author": "",
     "devDependencies": {
+        "postcss-html": "^1.8.1",
+        "postcss-scss": "^4.0.9",
         "stylelint": "^17.11.1",
         "stylelint-config-css-modules": "^4.6.0",
         "stylelint-config-prettier": "^9.0.5",

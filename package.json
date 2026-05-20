@@ -24,10 +24,11 @@
     "devDependencies": {
         "@repo/commitlint-config": "workspace:*",
         "@repo/eslint-config": "workspace:*",
+        "@repo/react-components": "workspace:*",
         "@repo/stylelint-config": "workspace:*",
         "@repo/typescript-config": "workspace:*",
         "@repo/vite-config": "workspace:*",
-        "@repo/react-components": "workspace:*",
+        "@repo/unocss-config": "workspace:*",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "husky": "^9.1.7",
@@ -35,6 +36,7 @@
         "postcss-html": "^1.8.1",
         "postcss-scss": "^4.0.9",
         "prettier": "^3.8.3",
+        "sass": "^1.99.0",
         "turbo": "^2.9.14",
         "typescript": "5.9.2",
         "unbuild": "^3.6.1"

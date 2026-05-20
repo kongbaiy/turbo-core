@@ -1,0 +1,19 @@
+{
+    "name": "@repo/unocss-config",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "description": "",
+    "license": "MIT",
+    "main": "./index.ts",
+    "scripts": {
+        "postinstall": "unbuild --stub"
+    },
+    "keywords": [],
+    "author": "",
+    "devDependencies": {
+        "@unocss/preset-attributify": "^66.6.8",
+        "@unocss/preset-wind3": "^66.6.8",
+        "unocss": "^66.6.8"
+    }
+}

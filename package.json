@@ -27,6 +27,7 @@
         "@repo/stylelint-config": "workspace:*",
         "@repo/typescript-config": "workspace:*",
         "@repo/vite-config": "workspace:*",
+        "@repo/react-components": "workspace:*",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "husky": "^9.1.7",

@@ -1,7 +1,10 @@
-import { defineConfig } from 'unocss'
+import { defineConfig, presetAttributify, presetWind3 } from 'unocss'
+import transformerAttributifyJsx from '@unocss/transformer-attributify-jsx'
 
 export function baseConfig() {
     return defineConfig({
+        presets: [presetWind3(), presetAttributify()],
+        transformers: [transformerAttributifyJsx()],
         theme: {
             colors: {
                 // 主色

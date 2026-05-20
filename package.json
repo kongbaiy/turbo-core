@@ -3,11 +3,6 @@
     "private": true,
     "type": "module",
     "packageManager": "pnpm@9.0.5",
-    "pnpm": {
-        "onlyBuiltDependencies": [
-            "npx"
-        ]
-    },
     "scripts": {
         "build": "turbo run build",
         "dev": "turbo run dev",

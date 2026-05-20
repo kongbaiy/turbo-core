@@ -42,7 +42,10 @@
         "scss",
         "vue",
         "sass",
-        "html"
+        "html",
+        "react",
+        "jsx",
+        "tsx"
     ],
 
     "files.eol": "\n",

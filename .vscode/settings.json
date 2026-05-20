@@ -5,7 +5,8 @@
     // Auto fix
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit",
-        "source.organizeImports": "never"
+        "source.organizeImports": "never",
+        "source.fixAll.stylelint": "explicit"
     },
 
     // eslint 配置
@@ -60,5 +61,14 @@
         "unplugin",
         "Vercel",
         "vite"
-    ]
+    ],
+
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    }
 }

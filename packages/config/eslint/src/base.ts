@@ -47,6 +47,7 @@ export const baseConfig = [
                 'error',
                 { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
             ],
+            '@typescript-eslint/no-explicit-any': 'off'
         },
     },
     {

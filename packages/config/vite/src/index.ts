@@ -7,7 +7,7 @@ import qiankun from 'vite-plugin-qiankun'
 
 interface ExtendOptions {
     plugins?: PluginOption[]
-    qiankun?: (...args: unknown[]) => unknown
+    qiankun?: (...args: unknown[]) => any
     server?: Record<string, unknown>
 }
 

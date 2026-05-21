@@ -1,4 +1,0 @@
-{
-    "extends": "../../packages/config/typescript/react-library.json",
-    "include": [".", "../../types"]
-}

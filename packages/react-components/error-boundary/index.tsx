@@ -19,7 +19,7 @@ export default class RepoErrorBoundary extends React.Component<
     }
 
     componentDidCatch(error: Error, info: React.ErrorInfo) {
-        console.log('RepoErrorBoundary caught an error:', error, info)
+        console.error('RepoErrorBoundary caught an error:', error, info)
     }
 
     render() {

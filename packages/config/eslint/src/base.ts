@@ -47,10 +47,13 @@ export const baseConfig = [
                 'error',
                 { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
             ],
-            '@typescript-eslint/no-explicit-any': 'off'
+            '@typescript-eslint/no-explicit-any': 'off',
         },
     },
     {
+        parserOptions: {
+            tsconfigRootDir: import.meta.url,
+        },
         plugins: {
             onlyWarn,
         },

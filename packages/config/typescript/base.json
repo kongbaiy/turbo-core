@@ -19,5 +19,13 @@
         "noUnusedParameters": true,
         "strict": true,
         "target": "ES2022"
-    }
+    },
+    "include": ["apps/**/*", "packages/**/*", "types/**/*"],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/dist/**",
+        "**/node_modules/**",
+        ".turbo"
+    ]
 }

@@ -46,3 +46,7 @@ dist
 *.njsproj
 *.sln
 *.sw?
+
+.pnpm-store
+.pnpm-debug.log
+.pnpm-*.tgz

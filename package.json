@@ -54,6 +54,6 @@
         "*.{vue,js,jsx}": "eslint --fix --max-warnings 0 --no-warn-ignored",
         "*.{json,md}": "eslint --fix --max-warnings 0 --no-warn-ignored",
         "*.{css,scss}": "stylelint --fix",
-        "*.{ts,tsx}": "tsc --noEmit"
+        "*.{ts,tsx}": "bash -c './node_modules/.bin/tsc --noEmit -p tsconfig.json'"
     }
 }

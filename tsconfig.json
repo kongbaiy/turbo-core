@@ -1,0 +1,11 @@
+{
+    "extends": "./packages/config/typescript/react-library.json",
+    "include": ["packages/react-components/**/*", "types/**/*"],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/dist/**",
+        "**/node_modules/**",
+        ".turbo"
+    ]
+}

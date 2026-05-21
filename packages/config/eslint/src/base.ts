@@ -40,6 +40,13 @@ export const baseConfig = [
         },
         rules: {
             'turbo/no-undeclared-env-vars': 'warn',
+            // TypeScript 项目关闭 no-undef，由 TS 编译器负责
+            'no-undef': 'off',
+            // 未使用变量检查
+            '@typescript-eslint/no-unused-vars': [
+                'error',
+                { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+            ],
         },
     },
     {

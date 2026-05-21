@@ -7,7 +7,7 @@ import qiankun from 'vite-plugin-qiankun'
 
 interface ExtendOptions {
     plugins?: PluginOption[]
-    qiankun?: (...args: unknown[]) => any
+    qiankun?: (plugin: typeof qiankun) => ReturnType<typeof qiankun>
     server?: Record<string, unknown>
 }
 
@@ -15,9 +15,10 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
     const {
         qiankun: setQiankun,
         plugins = [],
-        server = {}
+        server = {},
     } = extendOptions || {}
-    const mountQiankunApp = typeof setQiankun === 'function' ? setQiankun(qiankun) : ''
+    const mountQiankunApp =
+        typeof setQiankun === 'function' ? setQiankun(qiankun) : undefined
 
     return defineConfig({
         plugins: [
@@ -38,7 +39,7 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
 
             mountQiankunApp,
 
-            ...(plugins || [])
+            ...(plugins || []),
         ],
         css: {
             modules: {
@@ -49,8 +50,8 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
 
         server: {
             host: '0.0.0.0',
-            ...server
-        }
+            ...server,
+        },
     })
 }
 

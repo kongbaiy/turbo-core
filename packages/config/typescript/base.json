@@ -6,21 +6,17 @@
         "esModuleInterop": true,
         "incremental": false,
         "isolatedModules": true,
-        "lib": [
-            "es2022",
-            "DOM",
-            "DOM.Iterable"
-        ],
+        "lib": ["es2022", "DOM", "DOM.Iterable"],
         "module": "ESNext",
         "moduleDetection": "force",
         "moduleResolution": "bundler",
         "noUncheckedIndexedAccess": true,
         "resolveJsonModule": true,
         "skipLibCheck": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
         "noEmit": true,
         "noErrorTruncation": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         "strict": true,
         "target": "ES2022"
     }

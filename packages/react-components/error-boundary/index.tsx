@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './index.module.css'
 
 type ErrorBoundaryState = {
     error: Error | null
@@ -24,7 +25,7 @@ export default class RepoErrorBoundary extends React.Component<
     render() {
         if (this.state.error) {
             return (
-                <main className='app-shell error-shell'>
+                <main className={styles.appShell}>
                     <h1>应用发生错误</h1>
                     <p>{this.state.error.message}</p>
                     <pre>{this.state.error.stack}</pre>

@@ -6,30 +6,33 @@ import pluginReact from 'eslint-plugin-react'
 import globals from 'globals'
 import { baseConfig } from './base.js'
 
-export const reactConfig = [
-    ...baseConfig,
-    js.configs.recommended,
-    eslintConfigPrettier,
-    ...tseslint.configs.recommended,
-    pluginReact.configs.flat.recommended,
-    {
-        languageOptions: {
-            ...pluginReact.configs.flat.recommended.languageOptions,
-            globals: {
-                ...globals.serviceworker,
-                ...globals.browser,
+export function reactConfig(configs: Record<string, unknown>[]) {
+    return [
+        ...baseConfig,
+        js.configs.recommended,
+        eslintConfigPrettier,
+        ...tseslint.configs.recommended,
+        pluginReact.configs.flat.recommended,
+        {
+            languageOptions: {
+                ...pluginReact.configs.flat.recommended.languageOptions,
+                globals: {
+                    ...globals.serviceworker,
+                    ...globals.browser,
+                },
             },
         },
-    },
-    {
-        plugins: {
-            'react-hooks': pluginReactHooks,
+        {
+            plugins: {
+                'react-hooks': pluginReactHooks,
+            },
+            settings: { react: { version: 'detect' } },
+            rules: {
+                ...pluginReactHooks.configs.recommended.rules,
+                // React scope no longer necessary with new JSX transform.
+                'react/react-in-jsx-scope': 'off',
+            },
         },
-        settings: { react: { version: 'detect' } },
-        rules: {
-            ...pluginReactHooks.configs.recommended.rules,
-            // React scope no longer necessary with new JSX transform.
-            'react/react-in-jsx-scope': 'off',
-        },
-    },
-]
+        ...(configs || []),
+    ]
+}

@@ -51,7 +51,9 @@
         }
     },
     "lint-staged": {
-        "*.{vue,js,jsx,json,md}": "eslint --fix --max-warnings 0 --no-warn-ignored",
-        "*.{css,scss}": "stylelint --fix"
+        "*.{vue,js,jsx}": "eslint --fix --max-warnings 0 --no-warn-ignored",
+        "*.{json,md}": "eslint --fix --max-warnings 0 --no-warn-ignored",
+        "*.{css,scss}": "stylelint --fix",
+        "*.{ts,tsx}": "tsc --noEmit"
     }
 }

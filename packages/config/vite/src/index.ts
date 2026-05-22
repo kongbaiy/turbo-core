@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { defineConfig, PluginOption } from 'vite'
+import { defineConfig, type Plugin, PluginOption } from 'vite'
 import react from '@vitejs/plugin-react'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -11,14 +11,30 @@ interface ExtendOptions {
     server?: Record<string, unknown>
 }
 
+/** vite-plugin-qiankun 未转换 head 内 type=module 脚本，qiankun 会按普通脚本执行并报错 */
+function qiankunDevHtmlFix(): Plugin {
+    return {
+        name: 'qiankun-dev-html-fix',
+        transformIndexHtml: {
+            order: 'post',
+            handler(html) {
+                return html.replace(
+                    /<script\s+type="module">[\s\S]*?@react-refresh[\s\S]*?<\/script>\s*/gi,
+                    '',
+                )
+            },
+        },
+    }
+}
+
 function defineAppConfig(extendOptions?: ExtendOptions) {
     const {
         qiankun: setQiankun,
         plugins = [],
         server = {},
     } = extendOptions || {}
-    const mountQiankunApp =
-        typeof setQiankun === 'function' ? setQiankun(qiankun) : undefined
+    const isQiankunChild = typeof setQiankun === 'function'
+    const mountQiankunApp = isQiankunChild ? setQiankun(qiankun) : undefined
 
     return defineConfig({
         plugins: [
@@ -39,6 +55,8 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
 
             mountQiankunApp,
 
+            ...(isQiankunChild ? [qiankunDevHtmlFix()] : []),
+
             ...(plugins || []),
         ],
         css: {
@@ -50,6 +68,8 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
 
         server: {
             host: '0.0.0.0',
+            // 子应用在 qiankun 沙箱内不需要 HMR，且 /@vite/client 与主应用冲突
+            ...(isQiankunChild ? { hmr: false } : {}),
             ...server,
         },
     })

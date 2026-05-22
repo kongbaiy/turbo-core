@@ -3,9 +3,9 @@ import type { ThemeConfig } from 'antd'
 export const lightTheme: ThemeConfig = {
     token: {
         colorPrimary: '#fe873e',
-        colorSuccess: '#52c41a',
-        colorWarning: '#faad14',
-        colorError: '#ff4d4f',
+        colorSuccess: '#22c55d',
+        colorWarning: '#f59e0b',
+        colorError: '#ee4444',
         borderRadius: 6,
         fontSize: 14,
         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',

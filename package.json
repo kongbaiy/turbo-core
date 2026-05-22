@@ -18,12 +18,14 @@
     },
     "dependencies": {
         "@ant-design/icons": "^6.2.3",
+        "@ant-design/pro-components": "^2.8.10",
         "antd": "^6.4.3",
         "core-js": "^3.49.0",
         "react": "^19.2.6",
         "react-dom": "^19.2.6"
     },
     "devDependencies": {
+        "@repo/antd-theme": "workspace:*",
         "@repo/commitlint-config": "workspace:*",
         "@repo/eslint-config": "workspace:*",
         "@repo/react-components": "workspace:*",
@@ -31,7 +33,6 @@
         "@repo/typescript-config": "workspace:*",
         "@repo/unocss-config": "workspace:*",
         "@repo/vite-config": "workspace:*",
-        "@repo/antd-theme": "workspace:*",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "husky": "^9.1.7",

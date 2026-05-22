@@ -78,6 +78,9 @@ importers:
       qiankun:
         specifier: ^2.10.16
         version: 2.10.16
+      vite-plugin-qiankun:
+        specifier: ^1.0.15
+        version: 1.0.15(typescript@5.9.2)(vite@8.0.13(@types/node@20.19.41)(esbuild@0.25.12)(jiti@2.7.0)(sass@1.99.0)(yaml@2.9.0))
 
   apps/turbo-core-template:
     dependencies:

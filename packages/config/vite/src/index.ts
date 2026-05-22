@@ -40,6 +40,7 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
 
             ...(plugins || []),
         ],
+
         css: {
             modules: {
                 // 将 kebab-case 转换为 camelCase
@@ -50,6 +51,18 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
         server: {
             host: '0.0.0.0',
             ...server,
+        },
+
+        build: {
+            rollupOptions: {
+                output: {
+                    // 统一抽离公共依赖，避免重复打包
+                    manualChunks(id: string) {
+                        if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) return 'react-vendor'
+                        if (id.includes('node_modules/antd')) return 'antd-vendor';
+                    }
+                },
+            },
         },
     })
 }

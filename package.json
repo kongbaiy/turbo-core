@@ -31,6 +31,7 @@
         "@repo/typescript-config": "workspace:*",
         "@repo/unocss-config": "workspace:*",
         "@repo/vite-config": "workspace:*",
+        "@repo/antd-theme": "workspace:*",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "husky": "^9.1.7",

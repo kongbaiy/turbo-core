@@ -24,6 +24,9 @@ importers:
         specifier: ^19.2.6
         version: 19.2.6(react@19.2.6)
     devDependencies:
+      '@repo/antd-theme':
+        specifier: workspace:*
+        version: link:packages/antd-theme
       '@repo/commitlint-config':
         specifier: workspace:*
         version: link:packages/config/commitlint
@@ -93,6 +96,8 @@ importers:
       vite-plugin-qiankun:
         specifier: ^1.0.15
         version: 1.0.15(typescript@5.9.2)(vite@8.0.13(@types/node@20.19.41)(esbuild@0.25.12)(jiti@2.7.0)(sass@1.99.0)(yaml@2.9.0))
+
+  packages/antd-theme: {}
 
   packages/config/commitlint:
     devDependencies:

@@ -9,6 +9,7 @@ interface ExtendOptions {
     plugins?: PluginOption[]
     qiankun?: (plugin: typeof qiankun) => ReturnType<typeof qiankun>
     server?: Record<string, unknown>
+    root?: string
 }
 
 function defineAppConfig(extendOptions?: ExtendOptions) {
@@ -16,11 +17,13 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
         qiankun: setQiankun,
         plugins = [],
         server = {},
+        root = process.cwd(),
     } = extendOptions || {}
     const mountQiankunApp =
         typeof setQiankun === 'function' ? setQiankun(qiankun) : undefined
 
     return defineConfig({
+        root,
         plugins: [
             react(),
 
@@ -41,6 +44,12 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
 
             ...(plugins || []),
         ],
+
+        resolve: {
+            alias: {
+                '@': path.resolve(root, 'src'),
+            },
+        },
 
         css: {
             modules: {

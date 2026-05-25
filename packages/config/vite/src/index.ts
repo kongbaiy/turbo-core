@@ -17,7 +17,8 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
         plugins = [],
         server = {},
     } = extendOptions || {}
-    const mountQiankunApp = typeof setQiankun === 'function' ? setQiankun(qiankun) : undefined
+    const mountQiankunApp =
+        typeof setQiankun === 'function' ? setQiankun(qiankun) : undefined
 
     return defineConfig({
         plugins: [
@@ -58,9 +59,14 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
                 output: {
                     // 统一抽离公共依赖，避免重复打包
                     manualChunks(id: string) {
-                        if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) return 'react-vendor'
-                        if (id.includes('node_modules/antd')) return 'antd-vendor';
-                    }
+                        if (
+                            id.includes('node_modules/react') ||
+                            id.includes('node_modules/react-dom')
+                        )
+                            return 'react-vendor'
+                        if (id.includes('node_modules/antd'))
+                            return 'antd-vendor'
+                    },
                 },
             },
         },

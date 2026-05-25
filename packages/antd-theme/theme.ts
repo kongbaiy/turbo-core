@@ -6,14 +6,14 @@ export const lightTheme: ThemeConfig = {
         colorSuccess: '#22c55d',
         colorWarning: '#f59e0b',
         colorError: '#ee4444',
-        borderRadius: 6,
         fontSize: 14,
         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-        controlHeight: 32,
+        // controlHeight: 40,
+        borderRadius: 4,
     },
     components: {
         Button: {
-            controlHeight: 36,
+            // controlHeight: 36,
             borderRadius: 4,
             ghostBg: '#fff5ed',
             defaultGhostColor: 'red',
@@ -21,7 +21,7 @@ export const lightTheme: ThemeConfig = {
             defaultBgDisabled: '#f3f4f6',
             colorBgContainerDisabled: '#f3f4f6',
             colorTextDisabled: '#b6b6bf',
-            textTextColor: '#e77f54'
+            textTextColor: '#e77f54',
         },
         Card: {
             borderRadiusLG: 8,
@@ -31,7 +31,7 @@ export const lightTheme: ThemeConfig = {
         },
         // 可以继续覆盖其他组件样式
     },
-};
+}
 
 // 可预定义暗色主题
 export const darkTheme: ThemeConfig = {
@@ -40,4 +40,4 @@ export const darkTheme: ThemeConfig = {
         colorBgBase: '#141414',
         colorTextBase: '#ffffff',
     },
-};
+}

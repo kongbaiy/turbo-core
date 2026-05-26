@@ -5,7 +5,8 @@ export function defineConfig() {
             // 'stylelint-config-recommended-scss',
             // 支持 CSS Modules 的约定规则
             'stylelint-config-css-modules',
-            // 不使用 stylelint-config-prettier（与 stylelint@17 存在兼容性问题），建议使用 Prettier 单独格式化并让 Stylelint 负责风格校验
+            // 不使用 stylelint-config-prettier（与 stylelint@17 存在兼容性问题），建议使用 Prettier 单独格式化并让 Stylelint 负责风格校验,
+            // 自 Stylelint 15 起，其功能已内置在 stylelint 中，不再需要这个包
         ],
         plugins: [
             'stylelint-order', // 属性排序

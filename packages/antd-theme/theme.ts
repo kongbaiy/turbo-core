@@ -18,7 +18,6 @@ export const lightTheme: ThemeConfig = {
             ghostBg: '#fff5ed',
             defaultGhostColor: 'red',
             defaultGhostBorderColor: '#b65922',
-            defaultBgDisabled: '#f3f4f6',
             colorBgContainerDisabled: '#f3f4f6',
             colorTextDisabled: '#b6b6bf',
             textTextColor: '#e77f54',

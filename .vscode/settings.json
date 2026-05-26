@@ -49,6 +49,11 @@
         "tsx"
     ],
 
+    // unocss 配置
+    "scss.lint.unknownAtRules": "ignore",
+    "css.lint.unknownAtRules": "ignore",
+    "less.lint.unknownAtRules": "ignore",
+
     "files.eol": "\n",
 
     "cSpell.words": [

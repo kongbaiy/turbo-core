@@ -45,6 +45,9 @@ importers:
       '@repo/react-components':
         specifier: workspace:*
         version: link:packages/react-components
+      '@repo/react-hooks':
+        specifier: workspace:*
+        version: link:packages/react-hooks
       '@repo/stylelint-config':
         specifier: workspace:*
         version: link:packages/config/stylelint
@@ -238,6 +241,8 @@ importers:
         version: 20.19.41
 
   packages/react-components: {}
+
+  packages/react-hooks: {}
 
   packages/utils: {}
 

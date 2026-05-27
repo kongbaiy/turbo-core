@@ -27,7 +27,7 @@ api.interceptors.response.use(
 
         if (res.code === 200) {
             // 判断是否返回默认的响应数据
-            return defaultResponse ? response : res
+            return defaultResponse ? response : { ...res, status: true }
         }
 
         // 处理token失效或者异地登录
@@ -48,11 +48,11 @@ api.interceptors.response.use(
 
 
             }
-            return Promise.reject(res)
+            return Promise.reject({ ...res, status: false })
         }
 
         message.error(`${res.code}】${res.msg} ` || '网络未知错误')
-        return Promise.reject(res)
+        return Promise.reject({ ...res, status: false })
     },
     async (error: AxiosError) => {
         if (error.response) {

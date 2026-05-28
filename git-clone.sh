@@ -5,3 +5,4 @@
 #
 
 git clone -b dev https://github.com/kongbaiy/turbo-core-template.git apps/turbo-core-template
+git clone https://github.com/kongbaiy/turbo-qiankun-subapp.git apps/turbo-qiankun-subapp

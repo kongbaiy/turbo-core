@@ -57,15 +57,24 @@
     "files.eol": "\n",
 
     "cSpell.words": [
+        "antd",
+        "Appstore",
         "commitlint",
         "cssinjs",
         "excludesfile",
+        "geekblue",
         "njsproj",
         "ntvs",
+        "officedocument",
+        "openxmlformats",
         "PREFIXS",
         "qiankun",
         "serviceworker",
         "Siderbar",
+        "spreadsheetml",
+        "stylelintignore",
+        "thirdparty",
+        "Turborepo",
         "unocss",
         "unplugin",
         "Vercel",
@@ -90,5 +99,33 @@
 
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+
+    // 终端配置
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+
+    // Trae 的内置终端可能默认以非登录 shell 启动，或者没有正确读取你的配置文件，导致环境变量 $PATH 中缺少 Node.js 的安装路径。
+    // 登录 shell 参数, ~/.zshrc 或 ~/.bash_profile 等配置文件会被加载
+    "terminal.integrated.shellArgs.linux": ["--login"],
+    "terminal.integrated.shellArgs.osx": ["--login"]
 }

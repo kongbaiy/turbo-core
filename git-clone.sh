@@ -4,5 +4,5 @@
 # git config --global credential.helper store
 #
 
-git clone -b dev https://github.com/kongbaiy/turbo-core-template.git apps/turbo-core-template
-git clone https://github.com/kongbaiy/turbo-qiankun-subapp.git apps/turbo-qiankun-subapp
+git clone -b dev http://office.szyplus.com:3101/sc-cloud/sc-cloud-basic.git apps/sc-cloud-basic
+git clone -b dev http://office.szyplus.com:3101/sc-cloud/sc-cloud-platform.git apps/sc-cloud-platform

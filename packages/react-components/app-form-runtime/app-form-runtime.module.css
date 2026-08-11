@@ -1,0 +1,185 @@
+.runtime {
+    width: 100%;
+}
+
+.list-runtime {
+    width: 100%;
+    min-width: 0;
+}
+
+.list-design-root {
+    width: 100%;
+    min-width: 0;
+}
+
+.design-list-region {
+    position: relative;
+    outline: 2px dashed #ff9a66;
+    outline-offset: 4px;
+    transition:
+        outline-color 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.design-list-region:hover {
+    outline-color: #ff7a45;
+}
+
+.design-list-region-selected {
+    outline-color: #ff7a45;
+    outline-style: solid;
+    box-shadow: 0 0 0 2px rgb(255 122 69 / 12%);
+}
+
+.design-empty-search-region {
+    display: grid;
+    min-height: 72px;
+    margin: 12px 4px 22px;
+    background: rgb(255 250 247 / 45%);
+    font-size: 12px;
+    color: #b55a35;
+    place-items: center;
+}
+
+.design-table-region {
+    min-height: 180px;
+}
+
+.list-runtime :global(.ant-pro-table-list-toolbar-right),
+.list-runtime :global(.ant-pro-table-list-toolbar-setting-items) {
+    align-items: center;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.action-buttons :global(.ant-btn) {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+}
+
+.section {
+    padding: 16px 0 4px;
+}
+
+.section + .section {
+    border-top: 1px solid #edf0f5;
+}
+
+.section-title {
+    margin: 0 0 16px !important;
+    font-size: 15px !important;
+    line-height: 24px !important;
+}
+
+.list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.list-header .section-title {
+    margin-bottom: 0 !important;
+}
+
+.field-col {
+    min-width: 0;
+}
+
+.design-region {
+    position: relative;
+    min-height: 48px;
+    outline: 2px dashed #ff9a66;
+    outline-offset: 4px;
+    transition:
+        outline-color 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.design-region:hover,
+.design-region:focus-visible {
+    outline-color: #ff9a66;
+}
+
+.design-region-selected {
+    outline-color: #ff7a45;
+    outline-style: solid;
+    box-shadow: 0 0 0 2px rgb(255 122 69 / 12%);
+}
+
+.design-field {
+    position: relative;
+    border-radius: 3px;
+    outline: 1px solid transparent;
+    outline-offset: -2px;
+}
+
+.design-field:hover {
+    outline-color: #ffb38f;
+}
+
+.design-field-selected {
+    background: rgb(255 247 240 / 45%);
+    outline-color: #ff7a45;
+}
+
+.readonly-item :global(.ant-form-item-label) {
+    padding-bottom: 4px;
+}
+
+.readonly-item :global(.ant-form-item-control-input) {
+    min-height: 24px;
+}
+
+.runtime-readonly .section {
+    padding-top: 8px;
+}
+
+.runtime-readonly .field-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: 12px;
+}
+
+.runtime-readonly .readonly-item {
+    margin-bottom: 0;
+}
+
+.runtime-readonly .readonly-item :global(.ant-form-item-label > label) {
+    height: 22px;
+    font-size: 13px;
+    color: #646a73;
+}
+
+.runtime-readonly .readonly-item :global(.ant-form-item-control-input) {
+    min-height: 34px;
+}
+
+.runtime-readonly .readonly-item :global(.ant-typography) {
+    display: block;
+    min-height: 34px;
+    padding: 6px 10px;
+    border: 1px solid #edf0f5;
+    border-radius: 4px;
+    background: #fafbfc;
+    color: #1f2329;
+    line-height: 20px;
+    overflow-wrap: anywhere;
+}
+
+@media (width <= 768px) {
+    .section {
+        padding-top: 12px;
+    }
+
+    .runtime-readonly .field-col {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}

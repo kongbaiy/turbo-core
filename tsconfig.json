@@ -1,9 +1,7 @@
 {
     "extends": "./packages/config/typescript/react-library.json",
-    "include": [
-        "packages/react-components/**/*",
-        "types/**/*.ts"
-    ],
+    "include": ["packages/**/*", "types/**/*.ts", "clone/*"],
+
     "exclude": [
         "node_modules",
         "dist",

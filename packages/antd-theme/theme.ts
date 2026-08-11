@@ -2,19 +2,19 @@ import type { ThemeConfig } from 'antd'
 
 export const lightTheme: ThemeConfig = {
     token: {
-        colorPrimary: '#fe873e',
+        colorPrimary: '#e75927',
         colorSuccess: '#22c55d',
         colorWarning: '#f59e0b',
         colorError: '#ee4444',
         fontSize: 14,
         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-        // controlHeight: 40,
+        controlHeight: 32,
+        paddingContentHorizontal: 14,
         borderRadius: 4,
+        colorLink: '#e75927',
     },
     components: {
         Button: {
-            // controlHeight: 36,
-            borderRadius: 4,
             ghostBg: '#fff5ed',
             defaultGhostColor: 'red',
             defaultGhostBorderColor: '#b65922',
@@ -22,13 +22,13 @@ export const lightTheme: ThemeConfig = {
             colorTextDisabled: '#b6b6bf',
             textTextColor: '#e77f54',
         },
-        Card: {
-            borderRadiusLG: 8,
-        },
         Modal: {
             borderRadiusLG: 8,
         },
-        // 可以继续覆盖其他组件样式
+        Segmented: {
+            itemSelectedBg: '#e75927',
+            itemSelectedColor: '#fff',
+        },
     },
 }
 

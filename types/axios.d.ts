@@ -1,9 +1,4 @@
-// types/axios.d.ts
-import type {
-    AxiosRequestConfig as OriginalAxiosRequestConfig,
-    AxiosResponse as OriginalAxiosResponse,
-    AxiosInstance,
-} from 'axios'
+export * as axios from 'axios'
 
 declare module 'axios' {
     interface Page {
@@ -12,7 +7,6 @@ declare module 'axios' {
         size: number
         total: number
     }
-
     interface AxiosResult<T = any> {
         code: number
         data: T
@@ -20,50 +14,53 @@ declare module 'axios' {
         page: Page
     }
 
-    // 扩展 RequestConfig，基于原始 AxiosRequestConfig
-    export interface RequestConfig<
-        T = any,
-    > extends OriginalAxiosRequestConfig<T> {
+    export interface RequestConfig<T = any> extends AxiosRequestConfig<T> {
+        /** 自定义元数据 */
         meta?: {
+            /** 是否开启请求失败自动重连 */
             retryRequest?: boolean
+
+            /** 重连次数。默认为 3 次 */
             retryCount?: number
+
+            /** 是否返回默认响应数据，比如：需要获取 header 头数据时使用 */
             defaultResponse?: boolean
+
+            /** 是否由调用方自行处理错误，不显示全局错误提示 */
+            silentError?: boolean
         }
     }
 
-    // 扩展 AxiosResponse，同时保留原始 AxiosResponse 的字段（如 status, headers, config 等）
-    interface AxiosResponse<T = any, D = any>
-        extends AxiosResult<T>, OriginalAxiosResponse<T, D> {}
+    interface AxiosResponse extends AxiosResult {}
 
     type Response<T = any> = AxiosResponse<AxiosResult<T>>
 
-    // 重写 AxiosInstance 的方法，替换 config 类型为 RequestConfig
-    interface AxiosInstance {
-        request<T = any, R = AxiosResponse<T>, D = any>(
+    export interface AxiosInstance {
+        request: <T = any, R = AxiosResponse<T>, D = any>(
             config: RequestConfig<D>,
-        ): Promise<R>
-        get<T = any, R = AxiosResponse<T>, D = any>(
+        ) => Promise<R>
+        get: <T = any, R = AxiosResponse<T>, D = any>(
             url: string,
             config?: RequestConfig<D>,
-        ): Promise<R>
-        delete<T = any, R = AxiosResponse<T>, D = any>(
+        ) => Promise<R>
+        delete: <T = any, R = AxiosResponse<T>, D = any>(
             url: string,
             config?: RequestConfig<D>,
-        ): Promise<R>
-        post<T = any, R = AxiosResponse<T>, D = any>(
-            url: string,
-            data?: D,
-            config?: RequestConfig<D>,
-        ): Promise<R>
-        put<T = any, R = AxiosResponse<T>, D = any>(
+        ) => Promise<R>
+        post: <T = any, R = AxiosResponse<T>, D = any>(
             url: string,
             data?: D,
             config?: RequestConfig<D>,
-        ): Promise<R>
-        patch<T = any, R = AxiosResponse<T>, D = any>(
+        ) => Promise<R>
+        put: <T = any, R = AxiosResponse<T>, D = any>(
             url: string,
             data?: D,
             config?: RequestConfig<D>,
-        ): Promise<R>
+        ) => Promise<R>
+        patch: <T = any, R = AxiosResponse<T>, D = any>(
+            url: string,
+            data?: D,
+            config?: RequestConfig<D>,
+        ) => Promise<R>
     }
 }

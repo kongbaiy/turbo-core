@@ -1,1 +1,16 @@
-
+{
+    "folders": [
+        {
+            "name": "sc-cloud-basic-platform",
+            "path": "apps/sc-cloud-basic-platform",
+        },
+    ],
+    "files.exclude": {
+        "**/apps": true,
+        "packages": true,
+        "config": true,
+        "docs": true,
+        "types": true,
+        ".vscode": true,
+    },
+}

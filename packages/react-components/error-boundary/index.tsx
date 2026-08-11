@@ -5,7 +5,7 @@ type ErrorBoundaryState = {
     error: Error | null
 }
 
-export default class RepoErrorBoundary extends React.Component<
+export default class Index extends React.Component<
     React.PropsWithChildren<unknown>,
     ErrorBoundaryState
 > {
@@ -19,7 +19,7 @@ export default class RepoErrorBoundary extends React.Component<
     }
 
     componentDidCatch(error: Error, info: React.ErrorInfo) {
-        console.log('RepoErrorBoundary caught an error:', error, info)
+        console.log('ErrorBoundary caught an error:', error, info)
     }
 
     render() {

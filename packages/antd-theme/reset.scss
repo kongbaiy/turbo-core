@@ -1,3 +1,52 @@
 .ant-btn[disabled] {
     font-weight: 600;
 }
+
+[class^='sc-'],
+[class^='ant'] {
+    [class*='form-horizontal'] {
+        padding: 14px 4px;
+    }
+
+    [class*='pro-query-filter-row'] {
+        row-gap: 14px;
+    }
+
+    [class*='pro-table-list-toolbar-container'] {
+        padding-block: 6px;
+        padding-inline: 6px;
+    }
+
+    [class*='pro-card-body'] {
+        padding-inline: 14px;
+        padding-block: 14px;
+    }
+
+    [class*='pro-table-search'] {
+        margin-block-end: 12px;
+    }
+
+    [class*='table-pagination-end'] {
+        margin-block-end: 0 !important;
+    }
+
+    /* Pro Component 按钮 */
+    [class*='pro-query-filter-collapse-button'] {
+        color: rgb(254 135 62 / 80%);
+
+        &:hover {
+            color: rgb(254 135 62 / 100%);
+        }
+    }
+
+    /* Drawer */
+    [class*='drawer'][class*='drawer-content-wrapper'] [class*='-drawer-body'] {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    /* ProForm.Group */
+    [class*='pro-form-group-title'] {
+        margin-block-end: 14px;
+    }
+}

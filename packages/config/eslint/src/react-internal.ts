@@ -6,7 +6,7 @@ import pluginReact from 'eslint-plugin-react'
 import globals from 'globals'
 import { baseConfig } from './base.js'
 
-export function reactConfig(configs: Record<string, unknown>[]) {
+export function reactConfig(configs: any[]) {
     return [
         ...baseConfig,
         js.configs.recommended,
@@ -15,7 +15,7 @@ export function reactConfig(configs: Record<string, unknown>[]) {
         pluginReact.configs.flat.recommended,
         {
             languageOptions: {
-                ...pluginReact.configs.flat.recommended.languageOptions,
+                ...pluginReact.configs.flat.recommended?.languageOptions,
                 globals: {
                     ...globals.serviceworker,
                     ...globals.browser,

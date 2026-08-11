@@ -8,7 +8,7 @@
     },
     "scripts": {
         "lint": "eslint . --max-warnings 0",
-        "generate:component": "turbo gen react-component",
+        "generate:component": "turbo gen antd-theme",
         "check-types": "tsc --noEmit"
     }
 }

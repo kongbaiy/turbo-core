@@ -8,7 +8,7 @@ import globals from 'globals'
 import pluginNext from '@next/eslint-plugin-next'
 import { baseConfig } from './base.js'
 
-export const nextJSConfig = [
+export const nextJSConfig: any[] = [
     ...baseConfig,
     js.configs.recommended,
     eslintConfigPrettier,
@@ -23,7 +23,7 @@ export const nextJSConfig = [
     {
         ...pluginReact.configs.flat.recommended,
         languageOptions: {
-            ...pluginReact.configs.flat.recommended.languageOptions,
+            ...pluginReact.configs.flat.recommended?.languageOptions,
             globals: {
                 ...globals.serviceworker,
             },

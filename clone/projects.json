@@ -1,0 +1,99 @@
+[
+    {
+        "name": "sc-cloud-basic",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-basic.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-basic"
+    },
+    {
+        "name": "sc-cloud-platform",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-platform.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-platform"
+    },
+    {
+        "name": "sc-cloud-basic-platform",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-basic-platform.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-basic-platform"
+    },
+    {
+        "name": "budget",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-fm-budget.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-fm-budget"
+    },
+    {
+        "name": "hr",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-hr.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-hr"
+    },
+    {
+        "name": "mdm",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-mdm.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-mdm"
+    },
+    {
+        "name": "expense",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-expense.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-expense"
+    },
+    {
+        "name": "contract",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-contract.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-contract"
+    },
+    {
+        "name": "procurement",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-procurement.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-procurement"
+    },
+    {
+        "name": "design-form",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-design-form.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-design-form"
+    },
+
+    {
+        "name": "design-workflow",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-design-workflow.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-design-workflow"
+    },
+    {
+        "name": "fm-accounting",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-fm-accounting.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-fm-accounting"
+    },
+    {
+        "name": "fm-treasury",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-fm-treasury.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-fm-treasury"
+    },
+    {
+        "name": "integration",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-integration.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-integration"
+    },
+    {
+        "name": "asset-operations",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-asset-operations.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-asset-operations"
+    },
+    {
+        "name": "administrative",
+        "repoUrl": "http://office.szyplus.com:3101/sc-cloud/sc-cloud-administrative.git",
+        "branch": "dev",
+        "localPath": "apps/sc-cloud-administrative"
+    }
+]

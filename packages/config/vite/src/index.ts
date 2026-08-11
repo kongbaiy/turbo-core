@@ -11,9 +11,10 @@ interface ExtendOptions {
     envDir?: string
     envDirAuto?: boolean
     root?: (mode: string, process: NodeJS.Process) => string | string
+    base?: string | ((env: Record<string, any>, config: any) => string)
     plugins?: PluginOption[]
     qiankun?: (plugin: typeof qiankun) => ReturnType<typeof qiankun>
-    server?: Record<string, unknown>
+    server?: Record<string, any> | (<T>(options?: T) => Record<string, any>)
 }
 
 function defineAppConfig(extendOptions?: ExtendOptions) {
@@ -21,6 +22,7 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
         envDir = '../../',
         envDirAuto,
         root = process.cwd(),
+        base = '',
         qiankun: setQiankun,
         plugins = [],
         server = {},
@@ -29,21 +31,42 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
     const mountQiankunApp =
         typeof setQiankun === 'function' ? setQiankun(qiankun) : undefined
 
-
-    return defineConfig(({ mode }) => {
+    return defineConfig((config) => {
+        const { mode } = config
         const newEvnDir = envDirAuto ? process.cwd() : envDir
         const env = loadEnv(mode, newEvnDir)
-        const newBase = typeof root === 'function' ? root(mode, process) : (root || '')
+        const newRoot =
+            typeof root === 'function' ? root(mode, process) : root || ''
+        const newBasePath =
+            typeof base === 'function' ? base(env, config) : base || '/'
+        const newServer =
+            typeof server === 'function'
+                ? server({ mode, process, env })
+                : server || {}
 
         return {
-            root: newBase,
+            root: newRoot,
+            base: newBasePath,
             plugins: [
                 react(),
 
                 AutoImport({
                     imports: ['react'],
+                    exclude: [
+                        /[\\/]node_modules[\\/]/,
+                        /[\\/]\.git[\\/]/,
+                        /[\\/]app-form-runtime[\\/]rule-engine[\\/]contract-validator\.ts$/,
+                    ],
+                    dirsScanOptions: {
+                        fileFilter: (file) =>
+                            !file.endsWith(
+                                '/app-form-runtime/rule-engine/contract-validator.ts',
+                            ),
+                    },
                     dts: './auto-imports.d.ts',
-                    dirs: [path.resolve(__dirname, '../../../react-components')],
+                    dirs: [
+                        path.resolve(__dirname, '../../../react-components'),
+                    ],
                     eslintrc: {
                         enabled: true,
                         filepath: './.eslintrc-auto-import.json',
@@ -58,10 +81,21 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
                 ...(plugins || []),
             ],
 
+            define: {
+                // 配置 react-grid-layout process.env 变量，react-grid-layout 调用需要注入环境变量
+                'process.env.NODE_ENV': JSON.stringify(mode),
+            },
+
             resolve: {
                 alias: {
                     '@': path.resolve(process.cwd(), 'src'),
                 },
+                dedupe: [
+                    'react',
+                    'react-dom',
+                    'react/jsx-runtime',
+                    'react/jsx-dev-runtime',
+                ],
             },
 
             css: {
@@ -74,10 +108,11 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
             server: {
                 host: '0.0.0.0',
                 proxy: createProxy(env),
-                ...server,
+                ...newServer,
             },
 
             build: {
+                // cssCodeSplit: false, // 合并所有 CSS
                 rollupOptions: {
                     output: {
                         // 统一抽离公共依赖，避免重复打包

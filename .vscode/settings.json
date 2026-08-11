@@ -57,20 +57,40 @@
     "files.eol": "\n",
 
     "cSpell.words": [
+        "amap",
+        "antd",
+        "Apifox",
+        "Appstore",
+        "CASCADER",
         "commitlint",
         "cssinjs",
         "excludesfile",
+        "geekblue",
+        "microapps",
         "njsproj",
         "ntvs",
+        "officedocument",
+        "openxmlformats",
+        "Popconfirm",
         "PREFIXS",
         "qiankun",
         "serviceworker",
+        "sider",
         "Siderbar",
+        "spreadsheetml",
+        "stylelintignore",
+        "thirdparty",
+        "TOPBAR",
+        "Turborepo",
+        "umijs",
         "unocss",
         "unplugin",
+        "Usergroup",
         "Vercel",
         "vite",
-        "Wechat"
+        "wangeditor",
+        "Wechat",
+        "WXWORK"
     ],
 
     // 格式化配置
@@ -90,5 +110,33 @@
 
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+
+    // 终端配置
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+
+    // git
+    "git.autoRepositoryDetection": true,
+    "git.repositoryScanMaxDepth": 2,
+    "git.openRepositoryInParentFolders": "always"
 }

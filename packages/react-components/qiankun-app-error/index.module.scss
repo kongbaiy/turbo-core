@@ -1,0 +1,32 @@
+.container {
+    @apply flex flex-col items-center justify-center w-max mt-30vh m-x-auto p-24px
+        b-1 b-solid b-#f0b5b5 rd-8px bg-#fff8f8 text-center text-#7a1f1f;
+}
+
+.icon {
+    @apply mb-8px text-32px;
+}
+
+.title {
+    @apply m-0 text-18px fw-600;
+}
+
+.description {
+    @apply mt-8px text-#8c4a4a;
+}
+
+.message {
+    @apply mt-12px text-#b34141;
+}
+
+.button {
+    @apply mt-16px;
+}
+
+.button:hover {
+    @apply bg-#c63c3c;
+}
+
+.details {
+    @apply mt-16px p-y-12px p-x-16px rd-8px bg-#fff text-12px text-#5a5a5a of-auto whitespace-pre-wrap;
+}

@@ -1,0 +1,62 @@
+{
+    "schemaVersion": "1.1",
+    "form": {
+        "formId": "FORM_A",
+        "formCode": "FORM_A_CODE",
+        "formName": "测试表单"
+    },
+    "pageLayout": {
+        "layoutType": "SECTIONS",
+        "sections": [
+            {
+                "sectionCode": "MASTER_AREA",
+                "title": "主对象",
+                "domainCode": "MASTER",
+                "span": 24
+            },
+            {
+                "sectionCode": "OBJ_DETAIL_AREA",
+                "title": "明细对象",
+                "domainCode": "OBJ_DETAIL",
+                "span": 24
+            }
+        ]
+    },
+    "dataDomains": [
+        {
+            "domainCode": "MASTER",
+            "domainType": "MASTER",
+            "objectId": "OBJ_MASTER",
+            "layout": {
+                "renderType": "FORM",
+                "columns": 24,
+                "sections": [
+                    {
+                        "sectionCode": "BASE_INFO",
+                        "title": "主对象",
+                        "fieldCodes": ["applyName", "amount"]
+                    }
+                ]
+            },
+            "fields": []
+        },
+        {
+            "domainCode": "OBJ_DETAIL",
+            "domainType": "DETAIL",
+            "objectId": "OBJ_DETAIL",
+            "detailsKey": "OBJ_DETAIL",
+            "layout": {
+                "renderType": "FORM_TABLE",
+                "rowKey": "recordId",
+                "fieldCodes": ["itemName", "itemAmount"]
+            },
+            "fields": []
+        }
+    ],
+    "apiBindings": {
+        "saveApi": {
+            "method": "POST",
+            "url": "/admin/enterprise/basic/app-forms/{formKey}/records"
+        }
+    }
+}

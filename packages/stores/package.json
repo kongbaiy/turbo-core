@@ -1,0 +1,14 @@
+{
+    "name": "@repo/stores",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": "./index.ts"
+    },
+    "scripts": {
+        "lint": "eslint . --max-warnings 0",
+        "generate:component": "turbo gen react-hooks",
+        "check-types": "tsc --noEmit"
+    }
+}

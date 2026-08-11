@@ -1,0 +1,16 @@
+{
+    "name": "@repo/permission-navigation",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": "./index.ts"
+    },
+    "scripts": {
+        "check-types": "tsc --noEmit",
+        "test": "node --test src/**/*.test.ts"
+    },
+    "dependencies": {
+        "@repo/utils": "workspace:*"
+    }
+}

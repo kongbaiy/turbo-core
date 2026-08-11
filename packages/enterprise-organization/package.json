@@ -1,0 +1,22 @@
+{
+    "name": "@repo/enterprise-organization",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": "./index.ts"
+    },
+    "scripts": {
+        "check-types": "tsc --noEmit",
+        "test": "vitest run --root ../.. packages/enterprise-organization/src"
+    },
+    "dependencies": {
+        "@repo/pro-components": "workspace:*",
+        "@repo/react-components": "workspace:*",
+        "@repo/react-hooks": "workspace:*",
+        "@repo/utils": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "^20.16.5"
+    }
+}

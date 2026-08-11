@@ -1,0 +1,16 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@repo/typescript-config/react-library.json",
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "noEmit": true
+    },
+    "include": [
+        "index.ts",
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "../../types/**/*.ts"
+    ],
+    "exclude": ["node_modules", "dist", ".turbo"]
+}

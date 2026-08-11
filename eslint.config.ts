@@ -1,3 +1,3 @@
-import { baseConfig } from '@repo/eslint-config'
+import { baseConfig } from './packages/config/eslint/src/index'
 
 export default baseConfig

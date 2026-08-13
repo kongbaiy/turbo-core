@@ -1,5 +1,42 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
-pnpm run check-types
+prefix=$(git rev-parse --show-prefix)
 
+case "$prefix" in
+  apps/*) exclude_apps=0 ;;
+  *)      exclude_apps=1 ;;
+esac
+
+has_changes=0
+has_new_branch=0
+
+while read local_ref local_sha remote_ref remote_sha; do
+  if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+    has_new_branch=1
+    continue
+  fi
+
+  files=$(git diff --name-only "$remote_sha" "$local_sha" 2>/dev/null)
+
+  if [ "$exclude_apps" -eq 1 ]; then
+    files=$(echo "$files" | grep -v '^apps/' || true)
+  fi
+
+  if [ -n "$files" ]; then
+    has_changes=1
+  fi
+done
+
+if [ "$has_new_branch" -eq 1 ] || [ "$has_changes" -eq 1 ]; then
+  if [ "$exclude_apps" -eq 1 ]; then
+    echo "🔍 根目录 push，运行检查（排除 apps）"
+    pnpm run check-types:no-apps
+  else
+    echo "🔍 apps 目录 push，运行完整检查（包含 apps）"
+    pnpm run check-types
+  fi
+  exit $?
+else
+  echo "ℹ️  无相关变更，跳过检查。"
+  exit 0
+fi

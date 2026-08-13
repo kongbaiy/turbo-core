@@ -16,6 +16,7 @@
         "test:e2e": "playwright test",
         "format": "prettier --write \"**/*.{js,ts,jsx,tsx,css,scss,html,md}\"",
         "check-types": "turbo run check-types",
+        "check-types:no-apps": "turbo run check-types '--filter=!./apps/*'",
         "preinstall": "npx only-allow pnpm",
         "postinstall": "husky",
         "prepare": "husky",

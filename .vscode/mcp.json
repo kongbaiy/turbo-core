@@ -1,0 +1,12 @@
+{
+    "servers": {
+        "SC_Api文档": {
+            "type": "stdio",
+            "command": "npx",
+            "args": ["-y", "apifox-mcp-server@latest", "--project-id=8332680"],
+            "env": {
+                "APIFOX_ACCESS_TOKEN": "afxp_df80fbKY0gz6VmjvsJOugpEOTBmwtYNYHmWx"
+            }
+        }
+    }
+}

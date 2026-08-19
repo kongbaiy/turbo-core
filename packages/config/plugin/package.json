@@ -1,0 +1,17 @@
+{
+    "name": "@repo/plugin-config",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "postinstall": "unbuild --stub"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "types": "./dist/index.d.ts"
+}

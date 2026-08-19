@@ -38,6 +38,7 @@
         "@repo/unocss-config": "workspace:*",
         "@repo/utils": "workspace:*",
         "@repo/vite-config": "workspace:*",
+        "@repo/plugin-config": "workspace:*",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "esbuild": "0.27.0",

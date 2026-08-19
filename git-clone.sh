@@ -4,5 +4,5 @@
 # git config --global credential.helper store
 #
 
-git clone -b tabs-cache https://github.com/kongbaiy/turbo-core-template.git apps/turbo-core-template
+git clone -b tabs-cache https://github.com/kongbaiy/turbo-qiankun-main.git apps/turbo-qiankun-main
 git clone -b tabs-cache https://github.com/kongbaiy/turbo-qiankun-subapp.git apps/turbo-qiankun-subapp

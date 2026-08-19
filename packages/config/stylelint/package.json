@@ -5,6 +5,7 @@
     "type": "module",
     "description": "",
     "license": "MIT",
+    "packageManager": "pnpm@9.0.5",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",

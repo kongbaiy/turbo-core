@@ -45,6 +45,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:packages/config/eslint
+      '@repo/plugin-config':
+        specifier: workspace:*
+        version: link:packages/config/plugin
       '@repo/react-components':
         specifier: workspace:*
         version: link:packages/react-components
@@ -103,13 +106,19 @@ importers:
         specifier: ^3.6.1
         version: 3.6.1(sass@1.100.0)(typescript@5.9.2)
 
-  apps/sc-cloud-basic:
+  apps/turbo-qiankun-main:
     dependencies:
       qiankun:
         specifier: ^2.10.16
         version: 2.10.16
 
-  apps/sc-cloud-platform:
+  apps/turbo-qiankun-subapp:
+    dependencies:
+      qiankun:
+        specifier: ^2.10.16
+        version: 2.10.16
+
+  apps/turbo-qiankun-subapp2:
     dependencies:
       qiankun:
         specifier: ^2.10.16
@@ -164,6 +173,8 @@ importers:
       typescript-eslint:
         specifier: ^8.50.0
         version: 8.60.1(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.2)
+
+  packages/config/plugin: {}
 
   packages/config/stylelint:
     devDependencies:

@@ -5,7 +5,7 @@ import tseslint from 'typescript-eslint'
 import onlyWarn from 'eslint-plugin-only-warn'
 import { globalIgnores } from 'eslint/config'
 
-export const baseConfig = [
+export const baseConfig: any[] = [
     // 全局忽略放在最前面
     globalIgnores([
         'dist/**',

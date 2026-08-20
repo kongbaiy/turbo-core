@@ -6,3 +6,4 @@
 
 git clone -b tabs-cache https://github.com/kongbaiy/turbo-qiankun-main.git apps/turbo-qiankun-main
 git clone -b tabs-cache https://github.com/kongbaiy/turbo-qiankun-subapp.git apps/turbo-qiankun-subapp
+git clone -b tabs-cache https://github.com/kongbaiy/turbo-qiankun-subapp2.git apps/turbo-qiankun-subapp2

@@ -7,6 +7,13 @@
 在使用 loadMicroApp 时，会根据当前子应用路由环境去匹配，如果其他子应用又没有在加载前，卸载上一个子应用及环境（上下文）就会出现这个问题，react-router-dom 是严格匹配，当不匹配时抛出警告，而registerMicroApps 则没有这个问题，因为 registerMicroApps 内部自动处理了。
 如何处理，可以通过给路由表中每个path统一加前缀，从而实现 basename，把原有的 createBrowserRouter basename 去掉。
 
+还有一种方式就是在跳转其他子应用前，卸载当前的子应用后再跳转和加载子应用，但这样之前的keep-alive将失效，目前要实现多应用标签缓存并无basename冲突的处理方案有：
+
+- 动态 basename 及更新 react 路由
+- 去掉 basename，单独给 path 加 basename
+- 使用 createMemoryRouter， 但 createMemoryRouter 不监听url变化触发，需要在应用本身内部手动使用 useNavigate、Link等触发，这种情况就需要手动处理，监听url变化并触发 useNavigate、Link等。
+- 跳转前卸载当前子应用，手动控制跳转和加载子应用，并在主应用中做 keep-alive，不在子应用中做 keep-alive 了
+
 ### 微前端实现多应用之间多标签的实现（Qiankun + react + react + activation + ProComponent），样式丢失及自定义主题断层失效问题
 
 - 先说样式冲突覆盖丢失问题，作用域丢失，通过加样式前缀即可，像antd 自带有属性支持，可以创建一个唯一标识前缀方式处理

@@ -8,6 +8,26 @@ import { globalIgnores } from 'eslint/config'
 export const baseConfig: any[] = [
     // 全局忽略放在最前面
     globalIgnores([
+        /*。start */
+        /**
+         * 在根目录下（core）运行时排除，在apps、mobile-app下运行时不排除，根据 process.cwd() 实现，
+         * 子应用提交时（husky 在子仓库触发，cwd = 子应用目录），如：cwd + /apps/**  =  apps/sc-cloud-platform/apps/**，
+         * 这个路径不存在，所以完全不会命中，ESLint 照常检查子应用自己的代码，而根目录下时则反之 。
+         **/
+        'apps/**',
+        'mobile-apps/**',
+        /* end */
+
+        /* start */
+        // 根目录的也能匹配到，因为 ** 匹配 0 个或多个目录层级
+        '**/dist/**',
+        '**/node_modules/**',
+        '**/build/**',
+        '**/coverage/**',
+        '**/out/**',
+        '**/public/**',
+        '**/.next/**',
+        /* end */
         'dist/**',
         'node_modules/**',
         'build/**',
@@ -51,8 +71,13 @@ export const baseConfig: any[] = [
         },
     },
     {
-        parserOptions: {
-            tsconfigRootDir: import.meta.url,
+        languageOptions: {
+            parserOptions: {
+                // monorepo 多仓库（apps/* 各自独立 git 仓库）场景下，
+                // eslint 总是在子仓库根执行，process.cwd() 即各自的 tsconfigRootDir，
+                // 避免 typescript-eslint 推断出多个候选并报 multiple candidates 错误
+                tsconfigRootDir: process.cwd(),
+            },
         },
         plugins: {
             onlyWarn,

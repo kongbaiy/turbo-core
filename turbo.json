@@ -5,15 +5,34 @@
         "build": {
             "dependsOn": ["^build"],
             "inputs": ["$TURBO_DEFAULT$", ".env*"],
-            "outputs": [".next/**", "!.next/cache/**"]
+            "outputs": [".next/**", "!.next/cache/**"],
+            "env": ["NODE_ENV", "E2E_BASE_URL"]
         },
         "lint": {
-            "dependsOn": ["^lint"]
+            "dependsOn": ["^lint"],
+            "env": ["NODE_ENV", "E2E_BASE_URL"]
         },
         "check-types": {
-            "dependsOn": ["^check-types"]
+            "dependsOn": ["^check-types"],
+            "env": ["NODE_ENV", "E2E_BASE_URL"]
+        },
+        "test": {
+            "dependsOn": ["^build"],
+            "outputs": ["coverage/**"],
+            "env": ["NODE_ENV", "E2E_BASE_URL"]
+        },
+        "test:e2e": {
+            "env": ["NODE_ENV", "E2E_BASE_URL"]
+        },
+        "test:run": {
+            "dependsOn": ["^build"],
+            "env": ["NODE_ENV", "E2E_BASE_URL"]
         },
         "dev": {
+            "cache": false,
+            "persistent": true
+        },
+        "local": {
             "cache": false,
             "persistent": true
         }

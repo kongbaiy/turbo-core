@@ -7,17 +7,10 @@ import { globalIgnores } from 'eslint/config'
 
 export const baseConfig: any[] = [
     // 全局忽略放在最前面
+    // 注意：apps/** / mobile-apps/** 不要放在全局忽略里——baseConfig 设计目标就是
+    // "eslint 总是在子仓库根执行"（见下方 tsconfigRootDir: process.cwd() 注释），
+    // 若全局忽略 apps/**，子应用内 eslint 会因为命中 ignore 而报错找不到可 lint 文件。
     globalIgnores([
-        /*。start */
-        /**
-         * 在根目录下（core）运行时排除，在apps、mobile-app下运行时不排除，根据 process.cwd() 实现，
-         * 子应用提交时（husky 在子仓库触发，cwd = 子应用目录），如：cwd + /apps/**  =  apps/sc-cloud-platform/apps/**，
-         * 这个路径不存在，所以完全不会命中，ESLint 照常检查子应用自己的代码，而根目录下时则反之 。
-         **/
-        'apps/**',
-        'mobile-apps/**',
-        /* end */
-
         /* start */
         // 根目录的也能匹配到，因为 ** 匹配 0 个或多个目录层级
         '**/dist/**',

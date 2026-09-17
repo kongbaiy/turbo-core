@@ -14,7 +14,8 @@
         "prepare": "husky",
         "lint:eslint": "eslint . --fix",
         "lint:stylelint": "stylelint \"**/*.{css,scss}\" --fix",
-        "clone": "sh git-clone.sh"
+        "clone": "node ./clone/index.ts",
+        "clone-npx": "npx tsx ./clone/index.ts"
     },
     "dependencies": {
         "@ant-design/icons": "^6.2.3",

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "main",
+        "repoUrl": "https://github.com/kongbaiy/turbo-qiankun-main.git",
+        "branch": "shared-dependence",
+        "localPath": "apps/turbo-qiankun-main"
+    },
+    {
+        "name": "subapp",
+        "repoUrl": "https://github.com/kongbaiy/turbo-qiankun-subapp.git",
+        "branch": "shared-dependence",
+        "localPath": "apps/turbo-qiankun-subapp"
+    },
+    {
+        "name": "subapp2",
+        "repoUrl": "https://github.com/kongbaiy/turbo-qiankun-subapp2.git",
+        "branch": "shared-dependence",
+        "localPath": "apps/turbo-qiankun-subapp2"
+    }
+]

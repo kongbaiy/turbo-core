@@ -4,8 +4,11 @@ import react from '@vitejs/plugin-react'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import qiankun from 'vite-plugin-qiankun'
+import { buildStamp } from 'vite-plugin-build-stamp'
+import viteCompression from 'vite-plugin-compression'
 
 import { createProxy } from './proxy'
+import { sharedDependenceConfig } from './shared-dependence'
 
 interface ExtendOptions {
     envDir?: string
@@ -18,6 +21,7 @@ interface ExtendOptions {
     css?:
         | Record<string, unknown>
         | (<T extends unknown[]>(...args: T) => Record<string, unknown>)
+    sharedDependence?: boolean
 }
 
 function defineAppConfig(extendOptions?: ExtendOptions) {
@@ -30,6 +34,7 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
         plugins = [],
         server = {},
         css = {},
+        sharedDependence = true,
     } = extendOptions || {}
 
     const mountQiankunApp =
@@ -84,6 +89,17 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
                 mountQiankunApp,
 
                 ...(plugins || []),
+
+                buildStamp(),
+
+                viteCompression({
+                    verbose: true,
+                    disable: false,
+                    threshold: 10240,
+                    algorithm: 'gzip',
+                    ext: '.gz',
+                    deleteOriginFile: false,
+                }),
             ],
 
             define: {
@@ -118,21 +134,29 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
             },
 
             build: {
-                // cssCodeSplit: false, // 合并所有 CSS
-                rollupOptions: {
-                    output: {
-                        // 统一抽离公共依赖，避免重复打包
-                        manualChunks(id: string) {
-                            if (
-                                id.includes('node_modules/react') ||
-                                id.includes('node_modules/react-dom')
-                            )
-                                return 'react-vendor'
-                            if (id.includes('node_modules/antd'))
-                                return 'antd-vendor'
-                        },
-                    },
-                },
+                cssCodeSplit: sharedDependence ? false : true,
+                rollupOptions: sharedDependence
+                    ? {
+                          external: sharedDependenceConfig.external,
+                          output: {
+                              format: 'umd',
+                              inlineDynamicImports: true,
+                              globals: sharedDependenceConfig.globals,
+                          },
+                      }
+                    : {
+                          output: {
+                              manualChunks(id: string) {
+                                  if (
+                                      id.includes('node_modules/react') ||
+                                      id.includes('node_modules/react-dom')
+                                  )
+                                      return 'react-vendor'
+                                  if (id.includes('node_modules/antd'))
+                                      return 'antd-vendor'
+                              },
+                          },
+                      },
             },
         }
     })

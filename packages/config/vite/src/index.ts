@@ -1,23 +1,32 @@
 import path from 'node:path'
-import { defineConfig, PluginOption, loadEnv } from 'vite'
+import { defineConfig, PluginOption, loadEnv, ConfigEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import qiankun from 'vite-plugin-qiankun'
-import { buildStamp } from 'vite-plugin-build-stamp'
 import viteCompression from 'vite-plugin-compression'
+import { buildStamp } from 'vite-plugin-build-stamp'
 
 import { createProxy } from './proxy'
 import { sharedDependenceConfig } from './shared-dependence'
+
+export interface Env {
+    mode: string
+    process: NodeJS.Process
+    env: Record<string, string>
+}
 
 interface ExtendOptions {
     envDir?: string
     envDirAuto?: boolean
     root?: (mode: string, process: NodeJS.Process) => string | string
-    base?: string | ((env: Record<string, any>, config: any) => string)
+    base?: string | ((env: Record<string, any>, config: ConfigEnv) => string)
     plugins?: PluginOption[]
     qiankun?: (plugin: typeof qiankun) => ReturnType<typeof qiankun>
-    server?: Record<string, any> | (<T>(options?: T) => Record<string, any>)
+    server?:
+        | Record<string, unknown>
+        | ((options: Env) => Record<string, unknown>)
+    preview?: Record<string, unknown>
     css?:
         | Record<string, unknown>
         | (<T extends unknown[]>(...args: T) => Record<string, unknown>)
@@ -33,6 +42,7 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
         qiankun: setQiankun,
         plugins = [],
         server = {},
+        preview = {},
         css = {},
         sharedDependence = true,
     } = extendOptions || {}
@@ -52,12 +62,15 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
             typeof server === 'function'
                 ? server({ mode, process, env })
                 : server || {}
-        const newCss = typeof css === 'function' ? css() : css || {}
+        const newCss =
+            typeof css === 'function' ? css({ mode, process, env }) : css || {}
 
         return {
             root: newRoot,
             base: newBasePath,
             plugins: [
+                buildStamp(),
+
                 react(),
 
                 AutoImport({
@@ -90,8 +103,6 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
 
                 ...(plugins || []),
 
-                buildStamp(),
-
                 viteCompression({
                     verbose: true,
                     disable: false,
@@ -116,6 +127,7 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
                     'react-dom',
                     'react/jsx-runtime',
                     'react/jsx-dev-runtime',
+                    'dayjs',
                 ],
             },
 
@@ -133,6 +145,8 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
                 ...newServer,
             },
 
+            preview,
+
             build: {
                 cssCodeSplit: sharedDependence ? false : true,
                 rollupOptions: sharedDependence
@@ -148,11 +162,15 @@ function defineAppConfig(extendOptions?: ExtendOptions) {
                           output: {
                               manualChunks(id: string) {
                                   if (
-                                      id.includes('node_modules/react') ||
-                                      id.includes('node_modules/react-dom')
+                                      id.includes('node_modules/react/') ||
+                                      id.includes('node_modules/react-dom/')
                                   )
                                       return 'react-vendor'
-                                  if (id.includes('node_modules/antd'))
+
+                                  if (
+                                      id.includes('node_modules/antd/') ||
+                                      id.includes('node_modules/@ant-design/')
+                                  )
                                       return 'antd-vendor'
                               },
                           },
